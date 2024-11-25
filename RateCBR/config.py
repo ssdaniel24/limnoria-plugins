@@ -15,5 +15,13 @@ RateCBR = conf.registerPlugin('RateCBR')
 # conf.registerGlobalValue(RateCBR, 'someConfigVariableName',
 #     registry.Boolean(False, _("""Help for someConfigVariableName.""")))
 
+conf.registerChannelValue(
+    RateCBR,
+    'template',
+    registry.String(
+        '{code}: {nominal} {name} = {value} руб',
+        """Формат вывода курса валюты""",
+    )
+)
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:
