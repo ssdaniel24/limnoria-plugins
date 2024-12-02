@@ -7,10 +7,11 @@ class RusFun(callbacks.Plugin):
     """Развлекательный плагин, не несущий смысловую нагрузку."""
     threaded = True
 
-    def horo(self, irc, msg, args, sign):
-        """<знак зодиака>
+    def horo(self, irc, msg, args, optlist, sign):
+        """[--ero] <знак зодиака>
 
-        Печатает сегодняшний гороскоп данного знака Зодиака.
+        Печатает сегодняшний гороскоп данного знака Зодиака. Флаг '--ero'
+        переключает гороскоп на эротический.
         """
         sign = sign.lower()
 
@@ -30,24 +31,31 @@ class RusFun(callbacks.Plugin):
         }
 
         url = 'https://ignio.com/r/export/utf/xml/daily/com.xml'
+        for (option, _) in optlist:
+            if option == 'erotic':
+                url = 'https://ignio.com/r/export/utf/xml/daily/ero.xml'
+
         resp = utils.web.getUrl(url).decode()
         root = ET.fromstring(resp)
         horo_ET = root.find('./{}/today'.format(zodiac2latin[sign]))
         irc.reply(horo_ET.text.strip())
-    horo = wrap(horo, [('literal', (
-        'Овен', 'овен',
-        'Телец', 'телец',
-        'Близнецы', 'близнецы',
-        'Рак', 'рак',
-        'Лев', 'лев',
-        'Дева', 'дева',
-        'Весы', 'весы',
-        'Скорпион', 'скорпион',
-        'Стрелец', 'стрелец',
-        'Козерог', 'козерог',
-        'Водолей', 'водолей',
-        'Рыбы', 'рыбы',
-    ))])
+    horo = wrap(horo, [
+        getopts({ 'erotic': '', }),
+        ( 'literal', (
+            'Овен', 'овен',
+            'Телец', 'телец',
+            'Близнецы', 'близнецы',
+            'Рак', 'рак',
+            'Лев', 'лев',
+            'Дева', 'дева',
+            'Весы', 'весы',
+            'Скорпион', 'скорпион',
+            'Стрелец', 'стрелец',
+            'Козерог', 'козерог',
+            'Водолей', 'водолей',
+            'Рыбы', 'рыбы',
+        ),)
+    ])
 
 
 Class = RusFun
