@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2024-12-05 21:08+0300\n"
+"PO-Revision-Date: 2024-12-05 21:14+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: config.py:29
+msgid "Gismeteo application token"
+msgstr "Токен приложения Gismeteo"
+
+#: config.py:37
+msgid "Language code for requests"
+msgstr "Код языка для запросов"
+
+#: config.py:47
+msgid "Template for reply with weather data"
+msgstr "Шаблон ответа для форматирования данными погоды"
+
+#: plugin.py:11
+msgid "Weather plugin according to Gismeteo data."
+msgstr "Плагин погоды по данным Gismeteo."
+
+#: plugin.py:35
+msgid ""
+"<location>\n"
+"\n"
+"        Gets current weather of given location by Gismeteo data.\n"
+"        "
+msgstr ""
+"<место>\n"
+"\n"
+"Получает текущую погоду в данном месте по информации Gismeteo."
+
+#: plugin.py:52
+msgid " (according to Gismeteo data)"
+msgstr " (по данным Gismeteo)"

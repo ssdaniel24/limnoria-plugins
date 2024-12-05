@@ -18,6 +18,7 @@ class GisWeather(callbacks.Plugin):
         r = requests.get('https://api.gismeteo.net/v2/search/cities/',
                          params=payload, headers=headers)
         data = r.json()
+        # TODO: error handling!!!
         return ( data['response']['items'][0]['id'],
                  data['response']['items'][0]['name'], )
 
