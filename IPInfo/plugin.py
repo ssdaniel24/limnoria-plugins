@@ -1,4 +1,5 @@
 import json
+from country_codes import COUNTRY_CODES
 from supybot import conf, utils, callbacks
 from supybot.commands import *
 
