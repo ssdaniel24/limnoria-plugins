@@ -26,7 +26,8 @@ conf.registerGlobalValue(
     GisWeather,
     'token',
     registry.String(
-        '', _("""Gismeteo application token""")
+        '', _("""Gismeteo application token"""),
+        private=True,
     )
 )
 
