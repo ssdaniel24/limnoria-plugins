@@ -1,5 +1,5 @@
 import json
-from country_codes import COUNTRY_CODES
+from . import country_codes
 from supybot import conf, utils, callbacks
 from supybot.commands import *
 
@@ -33,7 +33,7 @@ class IPInfo(callbacks.Plugin):
         s += format_if_exist(' ({})', data.get('hostname'))
         s += ': '
         if data.get('country'):
-            country = COUNTRY_CODES.get(data['country'])
+            country = country_codes.COUNTRY_CODES.get(data['country'])
             s += 'country: '
             if country:
                 s += '{} ({})'.format(country, data['country'])
