@@ -16,7 +16,8 @@ IPInfo = conf.registerPlugin('IPInfo')
 #     registry.Boolean(False, _("""Help for someConfigVariableName.""")))
 
 conf.registerGlobalValue(IPInfo, 'token',
-    registry.String('', """IPInfo token from https://ipinfo.io/"""))
+    registry.String('', """IPInfo token from https://ipinfo.io/""",
+                    private=True))
 
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:
