@@ -31,16 +31,15 @@ class RusFun(callbacks.Plugin):
         }
 
         url = 'https://ignio.com/r/export/utf/xml/daily/com.xml'
-        for (option, _) in optlist:
-            if option == 'erotic':
-                url = 'https://ignio.com/r/export/utf/xml/daily/ero.xml'
+        if 'ero' in (k for k,v in optlist):
+            url = 'https://ignio.com/r/export/utf/xml/daily/ero.xml'
 
         resp = utils.web.getUrl(url).decode()
         root = ET.fromstring(resp)
         horo_ET = root.find('./{}/today'.format(zodiac2latin[sign]))
         irc.reply(horo_ET.text.strip())
     horo = wrap(horo, [
-        getopts({ 'erotic': '', }),
+        getopts({ 'ero': '', }),
         ( 'literal', (
             'Овен', 'овен',
             'Телец', 'телец',
