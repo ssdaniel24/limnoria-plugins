@@ -3,6 +3,7 @@
 Limnoria plugins I wrote or forked.
 - **GisWeather** implements Gismeteo API (russian weather website)
 - **IPInfo** implements ipinfo.io API
+- **DeepSeek** implements OpenAI APIs
 
 Plugins available in russian only / Плагины, доступные только на русском:
 - **RusFun** объединяет в себе кучку команд для развлечения публики
