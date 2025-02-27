@@ -1,4 +1,4 @@
-from supybot import utils, plugins, ircutils, callbacks
+from supybot import conf, utils, plugins, ircutils, callbacks
 from supybot.commands import *
 
 from supybot.i18n import PluginInternationalization, internationalizeDocstring
