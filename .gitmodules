@@ -1,0 +1,3 @@
+[submodule "GigaChat"]
+	path = GigaChat
+	url = https://github.com/ssdaniel24/limnoria-gigachat
