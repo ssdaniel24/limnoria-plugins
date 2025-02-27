@@ -10,6 +10,7 @@ from openai import OpenAI
 class DeepSeek(callbacks.Plugin):
     """DeepSeek API implementation."""
     threaded = True
+    conf.supybot.capabilities().add('-DeepSeek')
 
     @internationalizeDocstring
     def msg(self, irc, msg, args, text):
