@@ -22,11 +22,12 @@ class DeepSeek(callbacks.Plugin):
                 irc.nick)
 
         response = client.chat.completions.create(
-            model='deepseek-chat',
+            model=self.registryValue('model'),
             messages=[
                 {'role': 'system', 'content': prompt},
                 {'role': 'user', 'content': text},
             ],
+            max_tokens=self.registryValue('max_tokens', msg.channel),
             stream=False
         )
         content = response.choices[0].message.content

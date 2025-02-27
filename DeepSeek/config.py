@@ -25,11 +25,19 @@ conf.registerGlobalValue(DeepSeek, 'api_key',
         registry.String('', _("""Your DeepSeek API Key (required)"""),
         private=True))
 
+conf.registerChannelValue(DeepSeek, 'model',
+        registry.String('deepseek-chat', _("""AI model that will be used for
+        answers""")))
+
 conf.registerChannelValue(DeepSeek, 'prompt',
         registry.String(
             """Ты $botnick - IRC-бот. Будь вежлив и помогай пользователю.""",
             _("""Prompt that configures AI""")
         ))
+
+conf.registerChannelValue(DeepSeek, 'max_tokens',
+        registry.PositiveInteger(256, _("""Max tokens that will be used for AI
+        answers""")))
 
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:
