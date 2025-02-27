@@ -25,5 +25,11 @@ conf.registerGlobalValue(DeepSeek, 'api_key',
         registry.String('', _("""Your DeepSeek API Key (required)"""),
         private=True))
 
+conf.registerChannelValue(DeepSeek, 'prompt',
+        registry.String(
+            """Ты $botnick - IRC-бот. Будь вежлив и помогай пользователю.""",
+            _("""Prompt that configures AI""")
+        ))
+
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:

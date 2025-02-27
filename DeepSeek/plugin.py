@@ -16,13 +16,16 @@ class DeepSeek(callbacks.Plugin):
         """<message>"""
 
         client = OpenAI(api_key=self.registryValue('api_key'),
-                        base_url="https://api.deepseek.com")
+                        base_url='https://api.deepseek.com')
+
+        prompt = self.registryValue('prompt', msg.channel).replace('$botnick',
+                irc.nick)
 
         response = client.chat.completions.create(
-            model="deepseek-chat",
+            model='deepseek-chat',
             messages=[
-                {"role": "system", "content": "You are a helpful bot in IRC"},
-                {"role": "user", "content": text},
+                {'role': 'system', 'content': prompt},
+                {'role': 'user', 'content': text},
             ],
             stream=False
         )
@@ -30,7 +33,7 @@ class DeepSeek(callbacks.Plugin):
         for line in content.splitlines():
             if line:
                 irc.reply(line, prefixNick=False)
-    msg = wrap(msg, ["text"])
+    msg = wrap(msg, ['text'])
 
 
 Class = DeepSeek
